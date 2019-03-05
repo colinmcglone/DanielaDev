@@ -45,7 +45,7 @@ void del(struct cell *c) {
   n->prev = p;
   p->next = n;
 
-  c->value = NULL;
+  c->value = 0;
   c->prev = NULL;
   c->next = NULL;
 
