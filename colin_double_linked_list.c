@@ -59,6 +59,7 @@ void del(struct cell *c) {
   free(c);
 }
 
+//search for value of cell, return new linked list of cells
 struct cell *search(int v, struct cell *c) {
   //Go to root of list
   int i = 1;
@@ -79,7 +80,7 @@ struct cell *search(int v, struct cell *c) {
       if(prev->value == -1) {
         prev->value = v;
       } else {
-        result = insert(v, prev, NULL)
+        result = insert(v, prev, NULL);
         prev = result;
       }
     }
