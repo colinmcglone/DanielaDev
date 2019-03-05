@@ -18,14 +18,16 @@ struct cell *init(int v) {
   new->prev = NULL;
   new->next = NULL;
 
-  return &new;
+  return new;
 }
 
 struct cell *insert(int v, struct cell *p, struct cell *n) {
-  struct cell new = {v, p, n};
-  printf("\nPrev: %p\n", new.prev);
-  printf("\nValue: %d\n", new.value);
-  printf("\nNext: %p\n", new.next);
+  struct cell *new = init(v);
+  new->prev = p;
+  new->next = n;
+  printf("\nPrev: %p\n", new->prev);
+  printf("\nValue: %d\n", new->value);
+  printf("\nNext: %p\n", new->next);
   printf("\nNew: %p\n", &new);
   printf("=============\n");
 
