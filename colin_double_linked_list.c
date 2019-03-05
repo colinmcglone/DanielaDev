@@ -61,6 +61,4 @@ void walk(struct cell *c) {
 int main() {
   struct cell test = {2, NULL, NULL};
   struct cell dave = insert(5, &test, NULL);
-
-  walk(&test);
 }
