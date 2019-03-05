@@ -15,9 +15,12 @@ struct cell insert(int v, struct cell *p, struct cell *n) {
   struct cell new = {v, p, n};
   if(p != NULL) {
     p->next = &new;
+    printf("\New: %u\n", &new);
+    printf("\nPNext: %p\n", p->next);
   }
   if(n != NULL) {
     n->prev = &new;
+    printf("\nPPrev: %p\n", p->next);
   }
   return new;
 }
