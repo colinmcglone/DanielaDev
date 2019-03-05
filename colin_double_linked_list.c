@@ -78,9 +78,9 @@ struct cell *search(int v, struct cell *c) {
   while(e == 0) {
     if(cur->value == v) {
       if(prev->value == -1) {
-        prev->value = v;
+        prev->value = &cur;
       } else {
-        result = insert(v, prev, NULL);
+        result = insert(&cur, prev, NULL);
         prev = result;
       }
     }
@@ -91,7 +91,7 @@ struct cell *search(int v, struct cell *c) {
       cur = cur->next;
     }
   }
-  return result;
+  return prev;
 }
 
 void walk(struct cell *c) {
