@@ -14,10 +14,10 @@ struct dll {
 struct cell insert(int v, struct cell *p, struct cell *n) {
   struct cell new = {v, p, n};
   if(p != NULL) {
-    p->next = &new;
+    *p->next = new;
   }
   if(n != NULL) {
-    n->prev = &new;
+    *n->prev = new;
   }
   return new;
 }
