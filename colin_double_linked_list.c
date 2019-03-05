@@ -59,6 +59,13 @@ void walk(struct cell *c) {
   }
 }
 int main() {
-  struct cell test = {2, NULL, NULL};
-  struct cell dave = insert(5, &test, NULL);
+  struct cell *test;
+  test = (struct cell *) malloc (sizeof(struct cell));
+  test = {2, NULL, NULL};
+  printf("\nPrev: %p\n", test->prev);
+  printf("\nValue: %d\n", test->value);
+  printf("\nNext: %p\n", test->next);
+  printf("=============\n");
+
+  //struct cell dave = insert(5, &test, NULL);
 }
