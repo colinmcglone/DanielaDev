@@ -62,7 +62,10 @@ void walk(struct cell *c) {
 int main() {
   struct cell *test;
   test = (struct cell *) malloc (sizeof(struct cell));
-  test = {2, NULL, NULL};
+  test->value = 2;
+  test->prev = NULL;
+  test->next = NULL;
+  
   printf("\nPrev: %p\n", test->prev);
   printf("\nValue: %d\n", test->value);
   printf("\nNext: %p\n", test->next);
