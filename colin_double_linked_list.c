@@ -125,7 +125,7 @@ int main() {
   struct cell *dave = insert(7, test, NULL);
   struct cell *vic = insert(3, test, dave);
 
-  struct cell *s = search(3);
+  struct cell *s = search(3, test);
   walk(s);
 
   free(test);
