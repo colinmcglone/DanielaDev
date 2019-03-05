@@ -20,7 +20,7 @@ struct cell insert(int v, struct cell *p, struct cell *n) {
   printf("=============\n");
 
   if(p != NULL) {
-    *p->next = new;
+    *p->next = (struct cell)malloc(sizeof(new));
     printf("\nNew: %p\n", &new);
     printf("\nPNext: %p\n", &p->next);
   }
