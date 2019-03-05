@@ -65,16 +65,6 @@ int main() {
   struct cell *test = init(5);
   struct cell *dave = insert(7, test, NULL);
   struct cell *vic = insert(3, test, dave);
-  printf("\nPrev: %p\n", test->prev);
-  printf("\nValue: %d\n", test->value);
-  printf("\nNext: %p\n", test->next);
-  printf("=============\n");
-  printf("\nPrev: %p\n", vic->prev);
-  printf("\nValue: %d\n", vic->value);
-  printf("\nNext: %p\n", vic->next);
-  printf("=============\n");
-  printf("\nPrev: %p\n", dave->prev);
-  printf("\nValue: %d\n", dave->value);
-  printf("\nNext: %p\n", dave->next);
-  printf("=============\n");
+
+  walk(test);
 }
