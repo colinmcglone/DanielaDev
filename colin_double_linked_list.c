@@ -13,7 +13,7 @@ struct dll {
 
 struct cell *init(int v) {
   struct cell *new;
-  new = (struct cell *) malloc (sizeof(struct cell));
+  new = malloc (sizeof(struct cell));
   new->value = v;
   new->prev = NULL;
   new->next = NULL;
