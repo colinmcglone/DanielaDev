@@ -11,6 +11,7 @@ struct dll {
   struct cell *first;
 };
 
+//Initialize cell
 struct cell *init(int v) {
   struct cell *new;
   new = malloc (sizeof(struct cell));
@@ -21,6 +22,7 @@ struct cell *init(int v) {
   return new;
 }
 
+//Insert new cell to list
 struct cell *insert(int v, struct cell *p, struct cell *n) {
   struct cell *new = init(v);
   new->prev = p;
@@ -34,6 +36,22 @@ struct cell *insert(int v, struct cell *p, struct cell *n) {
   }
   return new;
 }
+
+//Delete cell
+void del(struct cell *c) {
+  struct cell *p = c->prev;
+  struct cell *n = c->next;
+
+  n->prev = p;
+  p->next = n;
+
+  c->value = NULL;
+  c->prev = NULL;
+  c->next = NULL;
+
+  free(c);
+}
+
 
 void walk(struct cell *c) {
   //Go to root of list
@@ -72,5 +90,5 @@ int main() {
   free(dave);
   free(vic);
 
-  return 0;  
+  return 0;
 }
