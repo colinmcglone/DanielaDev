@@ -16,8 +16,9 @@ struct cell insert(int v, struct cell *p, struct cell *n) {
   printf("\nPrev: %p\n", new.prev);
   printf("\nValue: %d\n", new.value);
   printf("\nNext: %p\n", new.next);
+  printf("\nNew: %p\n", &new);
   printf("=============\n");
-  
+
   if(p != NULL) {
     *p->next = new;
     printf("\nNew: %p\n", &new);
