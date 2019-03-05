@@ -79,4 +79,13 @@ int main() {
   printf("=============\n");
 
   struct cell *dave = insert(5, &test, NULL);
+
+  printf("\nPrev: %p\n", test->prev);
+  printf("\nValue: %d\n", test->value);
+  printf("\nNext: %p\n", test->next);
+  printf("=============\n");
+  printf("\nPrev: %p\n", dave->prev);
+  printf("\nValue: %d\n", dave->value);
+  printf("\nNext: %p\n", dave->next);
+  printf("=============\n");
 }
