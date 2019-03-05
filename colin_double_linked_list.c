@@ -27,14 +27,10 @@ struct cell *insert(int v, struct cell *p, struct cell *n) {
   new->next = n;
 
   if(p != NULL) {
-
-    //*p->next = new;
-    //printf("\nNew: %p\n", &new);
-    printf("\nPNext: %p\n", p->next);
+    p->next = new;
   }
   if(n != NULL) {
-    //*n->prev = new;
-    printf("\nPPrev: %p\n", p->next);
+    n->prev = new;
   }
   return new;
 }
