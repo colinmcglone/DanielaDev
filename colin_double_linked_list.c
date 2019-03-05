@@ -67,4 +67,10 @@ int main() {
   struct cell *vic = insert(3, test, dave);
 
   walk(test);
+
+  free(test);
+  free(dave);
+  free(vic);
+
+  return 0;  
 }
