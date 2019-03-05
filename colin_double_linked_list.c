@@ -78,5 +78,5 @@ int main() {
   printf("\nNext: %p\n", test->next);
   printf("=============\n");
 
-  //struct cell dave = insert(5, &test, NULL);
+  struct cell *dave = insert(5, &test, NULL);
 }
