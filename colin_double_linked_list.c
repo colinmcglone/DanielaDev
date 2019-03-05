@@ -11,8 +11,16 @@ struct dll {
   struct cell *first;
 };
 
+struct cell *init(int v) {
+  struct cell *new;
+  new = (struct cell *) malloc (sizeof(struct cell));
+  new->value = v;
+  new->prev = NULL;
+  new->next = NULL;
 
-struct cell insert(int v, struct cell *p, struct cell *n) {
+  return new;
+}
+struct cell *insert(int v, struct cell *p, struct cell *n) {
   struct cell new = {v, p, n};
   printf("\nPrev: %p\n", new.prev);
   printf("\nValue: %d\n", new.value);
@@ -60,12 +68,8 @@ void walk(struct cell *c) {
   }
 }
 int main() {
-  struct cell *test;
-  test = (struct cell *) malloc (sizeof(struct cell));
-  test->value = 2;
-  test->prev = NULL;
-  test->next = NULL;
-  
+  test = init(5);
+
   printf("\nPrev: %p\n", test->prev);
   printf("\nValue: %d\n", test->value);
   printf("\nNext: %p\n", test->next);
