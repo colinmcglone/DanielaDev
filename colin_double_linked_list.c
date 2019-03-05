@@ -13,6 +13,11 @@ struct dll {
 
 struct cell insert(int v, struct cell *p, struct cell *n) {
   struct cell new = {v, p, n};
+  printf("\nPrev: %p\n", new.prev);
+  printf("\nValue: %d\n", new.value);
+  printf("\nNext: %p\n", new.next);
+  printf("=============\n");
+  
   if(p != NULL) {
     *p->next = new;
     printf("\nNew: %p\n", &new);
