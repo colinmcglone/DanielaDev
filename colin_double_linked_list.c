@@ -59,6 +59,39 @@ void del(struct cell *c) {
   free(c);
 }
 
+struct cell *search(int v, struct cell *c) {
+  //Go to root of list
+  int i = 1;
+  struct cell *cur = c;
+  while(i==1) {
+    if(cur->prev == NULL) {
+      i = 0;
+    }
+    else {
+      cur = cur->prev;
+    }
+  }
+  int e = 0;
+  struct cell *prev = init(-1);
+  struct cell *result;
+  while(e == 0) {
+    if(cur->value == v) {
+      if(prev->value == -1) {
+        prev->value = v;
+      } else {
+        result = insert(v, prev, NULL)
+        prev = result;
+      }
+    }
+    if(cur->next == NULL) {
+      e = 1;
+    }
+    else {
+      cur = cur->next;
+    }
+  }
+  return result;
+}
 
 void walk(struct cell *c) {
   //Go to root of list
@@ -91,9 +124,8 @@ int main() {
   struct cell *dave = insert(7, test, NULL);
   struct cell *vic = insert(3, test, dave);
 
-  del(dave);
-
-  walk(test);
+  s = search(3);
+  walk(s);
 
   free(test);
   free(dave);
