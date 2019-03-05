@@ -68,7 +68,7 @@ void walk(struct cell *c) {
   }
 }
 int main() {
-  test = init(5);
+  struct cell *test = init(5);
 
   printf("\nPrev: %p\n", test->prev);
   printf("\nValue: %d\n", test->value);
