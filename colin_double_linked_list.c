@@ -7,10 +7,6 @@ struct cell {
   struct cell *next;
 };
 
-struct dll {
-  struct cell *first;
-};
-
 //Initialize cell
 struct cell *init(int v) {
   struct cell *new;
@@ -59,7 +55,7 @@ void del(struct cell *c) {
   free(c);
 }
 
-//search for value of cell, return new linked list of cells
+//search for value of cell, return first cell with value
 struct cell *search(int v, struct cell *c) {
   //Go to root of list
   int i = 1;
@@ -72,17 +68,13 @@ struct cell *search(int v, struct cell *c) {
       cur = cur->prev;
     }
   }
+  //Iterate through list, check value
   int e = 0;
-  struct cell *prev = init(-1);
-  struct cell *result;
+  struct cell *r;
   while(e == 0) {
     if(cur->value == v) {
-      if(prev->value == -1) {
-        prev->value = &cur;
-      } else {
-        result = insert(&cur, prev, NULL);
-        prev = result;
-      }
+        r = cur;
+        e = 1
     }
     if(cur->next == NULL) {
       e = 1;
@@ -91,7 +83,7 @@ struct cell *search(int v, struct cell *c) {
       cur = cur->next;
     }
   }
-  return prev;
+  return r;
 }
 
 void walk(struct cell *c) {
@@ -106,6 +98,7 @@ void walk(struct cell *c) {
       cur = cur->prev;
     }
   }
+  //Iterate through list, print cell info
   int e = 0;
   while(e == 0) {
     printf("\nPrev: %p\n", cur->prev);
