@@ -74,7 +74,7 @@ struct cell *search(int v, struct cell *c) {
   while(e == 0) {
     if(cur->value == v) {
         r = cur;
-        e = 1
+        e = 1;
     }
     if(cur->next == NULL) {
       e = 1;
@@ -86,6 +86,14 @@ struct cell *search(int v, struct cell *c) {
   return r;
 }
 
+//Print cell details
+void printc(struct cell *c) {
+  printf("Prev: %p\n", c->prev);
+  printf("\nValue: %d\n", c->value);
+  printf("\nNext: %p\n\n", c->next);
+}
+
+//Print entire linked list
 void walk(struct cell *c) {
   //Go to root of list
   int i = 1;
@@ -101,10 +109,7 @@ void walk(struct cell *c) {
   //Iterate through list, print cell info
   int e = 0;
   while(e == 0) {
-    printf("\nPrev: %p\n", cur->prev);
-    printf("\nValue: %d\n", cur->value);
-    printf("\nNext: %p\n", cur->next);
-    printf("=============\n");
+    printc(cur);
     if(cur->next == NULL) {
       e = 1;
     }
@@ -113,13 +118,14 @@ void walk(struct cell *c) {
     }
   }
 }
+
 int main() {
   struct cell *test = init(5);
   struct cell *dave = insert(7, test, NULL);
   struct cell *vic = insert(3, test, dave);
 
   struct cell *s = search(3, test);
-  walk(s);
+  printc(s);
 
   free(test);
   free(dave);
