@@ -55,8 +55,8 @@ void del(struct cell *c) {
   free(c);
 }
 
-//search for value of cell, return first cell with value
-struct cell *search(int v, struct cell *c) {
+//Get first cell in list
+struct cell *first(struct cell *c) {
   //Go to root of list
   int i = 1;
   struct cell *cur = c;
@@ -68,6 +68,13 @@ struct cell *search(int v, struct cell *c) {
       cur = cur->prev;
     }
   }
+  return cur;
+}
+
+//search for value of cell, return first cell with value
+struct cell *search(int v, struct cell *c) {
+  struct cell *cur = first(c);
+
   //Iterate through list, check value
   int e = 0;
   struct cell *r;
@@ -95,17 +102,7 @@ void printc(struct cell *c) {
 
 //Print entire linked list
 void walk(struct cell *c) {
-  //Go to root of list
-  int i = 1;
-  struct cell *cur = c;
-  while(i==1) {
-    if(cur->prev == NULL) {
-      i = 0;
-    }
-    else {
-      cur = cur->prev;
-    }
-  }
+  struct cell *cur = first(c);
   //Iterate through list, print cell info
   int e = 0;
   while(e == 0) {
@@ -119,6 +116,23 @@ void walk(struct cell *c) {
   }
 }
 
+//Count cells in list
+int countc(struct cell *c) {
+  struct cell *cur = first(c);
+  int i = 0;
+  int e = 0;
+  while(e == 0) {
+    if(cur->next == NULL) {
+      e = 1;
+    }
+    else {
+      cur = cur->next;
+      i = i + 1;
+    }
+  }
+  return i;
+}
+
 int main() {
   struct cell *test = init(5);
   struct cell *dave = insert(7, test, NULL);
@@ -126,6 +140,8 @@ int main() {
 
   struct cell *s = search(3, test);
   printc(s);
+
+  printf("There are %d cells in the linked list.\n", countc(vic));
 
   free(test);
   free(dave);
