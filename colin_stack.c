@@ -48,6 +48,8 @@ struct stack *pop(struct stack *s) {
   s->head = n->next;
   s->size -= 1;
 
+  free(n);
+
   return s;
 }
 
